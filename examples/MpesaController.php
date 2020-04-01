@@ -58,7 +58,7 @@ class MpesaController extends Controller
         $data = $request->all();
 
         try {
-            $res = STK($request->phone, $request->amount, $request->reference);
+            $res = STK::send($request->phone, $request->amount, $request->reference);
 
             if (!isset($res['errorCode'])) {
                 $data['ref'] = $res->MerchantRequestID;
